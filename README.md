@@ -26,3 +26,24 @@ localhost:8080 jinwookh
 ex)
 45000
 ```
+
+linux 계열에서 실행 (MAC cmd)
+------------
+- 헤더 파일이 있는 디렉토리를 추가해주는 설정이 필요하다. (-l 설정)
+- dynamic library가 있는 디렉토리가 추가해야 한다. (-L 설정)
+- dynamic library를 하나씩 일일히 추가해야 한다. (-l 설정)
+- 실행과 관련있는 모든 cpp 파일을 추가해야 한다. ( ex: MultiplayerBook/chapter\ 6/RoboCatAction/RoboCatServer/**/*.cpp)
+- gcc에 c++ 11버전을 사용한다고 알려주어야 한다. (-std=c++11 -stdlib=libc++) 안 그러면 emplace_back 함수를 gcc가 인지하지 못한다.
+
+1. 다음 명령어를 실행한다.
+```
+g++ -std=c++11 -stdlib=libc++ -w -v -o robocatserver -I/MultiplayerBook/chapter\ 6/RoboCatAction/RoboCat/Inc -I/MultiplayerBook/chapter\ 6/RoboCatAction/RoboCatServer/Inc -I/MultiplayerBook/chapter\ 6/RoboCatAction/SDL/include /MultiplayerBook/chapter\ 6/RoboCatAction/RoboCat/**/*.cpp /MultiplayerBook/chapter\ 6/RoboCatAction/RoboCatServer/**/*.cpp -L/MultiplayerBook/chapter\ 6/RoboCatAction/SDL/lib/mac -lSDL2-2.0.0 -lSDL2_image-2.0.0 -lSDL2_mixer-2.0.0 -lSDL2_ttf-2.0.0 -lfreetype.6 -lpng16.16
+```
+2. dynamic library 경로를 PATH에 추가한다.
+```
+export DYLD_LIBRARY_PATH=/MultiplayerBook/chapter\ 6/RoboCatAction/SDL/lib/mac
+```
+3. 실행 인자를 넣어서 실행한다.
+```
+./robocatserver 45000
+```
