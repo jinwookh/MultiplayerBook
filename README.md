@@ -39,7 +39,7 @@ linux 계열에서 실행 (MAC cmd)
 ```
 g++ -std=c++11 -stdlib=libc++ -w -v -o robocatserver -I/MultiplayerBook/chapter\ 6/RoboCatAction/RoboCat/Inc -I/MultiplayerBook/chapter\ 6/RoboCatAction/RoboCatServer/Inc -I/MultiplayerBook/chapter\ 6/RoboCatAction/SDL/include /MultiplayerBook/chapter\ 6/RoboCatAction/RoboCat/**/*.cpp /MultiplayerBook/chapter\ 6/RoboCatAction/RoboCatServer/**/*.cpp -L/MultiplayerBook/chapter\ 6/RoboCatAction/SDL/lib/mac -lSDL2-2.0.0 -lSDL2_image-2.0.0 -lSDL2_mixer-2.0.0 -lSDL2_ttf-2.0.0 -lfreetype.6 -lpng16.16
 ```
-2. dynamic library 경로를 PATH에 추가한다.
+2. dynamic library 경로를 DYLD_LIBRARY_PATH에 추가한다.
 ```
 export DYLD_LIBRARY_PATH=/MultiplayerBook/chapter\ 6/RoboCatAction/SDL/lib/mac
 ```
