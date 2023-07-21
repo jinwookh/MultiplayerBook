@@ -47,3 +47,4 @@ export DYLD_LIBRARY_PATH=/MultiplayerBook/chapter\ 6/RoboCatAction/SDL/lib/mac
 ```
 ./robocatserver 45000
 ```
+경로는 개인 환경마다 다를 수 있다.
