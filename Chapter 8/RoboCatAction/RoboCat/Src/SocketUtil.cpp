@@ -91,10 +91,12 @@ fd_set* SocketUtil::FillSetFromVector( fd_set& outSet, const vector< TCPSocketPt
 {
 	if( inSockets )
 	{
+		// clear fd_set
 		FD_ZERO( &outSet );
 		
 		for( const TCPSocketPtr& socket : *inSockets )
 		{
+			// add socket->mSocket to fd_set
 			FD_SET( socket->mSocket, &outSet );
 #if !_WIN32
 			ioNaxNfds = std::max( ioNaxNfds, socket->mSocket );
